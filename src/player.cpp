@@ -54,3 +54,31 @@ void Player::swapHero(Player& player)
 		//do not swap when both have not Hero card
 	}
 }
+
+void Player::add(const Card& card)
+{
+	cardType c_type = card.getCardType();
+
+	switch(c_type)
+	{
+		case hero:
+			change(card);
+		break;
+		case event:
+			//ToDo:: check if there is already this type of event card
+			m_specialCard.push_back(card);
+		break;
+		case hall:
+			if(m_cardDeck.size
+			m_cardDeck.push_back(card);
+		break;
+		default:
+		break;
+	}
+
+}
+
+void Player::remove(const Card& card)
+{
+	//TODO
+}
