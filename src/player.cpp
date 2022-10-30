@@ -40,7 +40,17 @@ void Player::change(const Hero& hero)
 		add(hero);
 	}
 }
+
 void Player::swapHero(Player& player)
 {
-	if( m_hero != nullptr &&
+	if( m_hero != nullptr || player.getHero() != nullptr )	//swap if at least one player has Hero card
+	{
+		Hero* tmp{m_hero};
+		m_hero = player.m_hero;
+		player.m_hero = tmp;
+	}
+	else
+	{
+		//do not swap when both have not Hero card
+	}
 }
