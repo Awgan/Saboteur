@@ -87,7 +87,7 @@ void Player::add(const Card& card)
 void Player::remove(const int n)
 {
 	const int size = sizeDeck();
-	if (size < 6)
+	if (size < 6)																	//Max card deck is 5
 	{
 		m_cardDeck.erase(m_cardDeck.begin() + n);
 	}
@@ -146,12 +146,25 @@ void Player::addSpecial(const Card& card)
 
 void Player::showSpecial()
 {
-	//ToDo
+	using v_it=std::vector<Card>::iterator;
+
+	v_it b_it = m_specialCard.begin();
+	v_it e_it = m_specialCard.end();
+
+	std::for_each(b_it, e_it, [](Card& c){ std::cerr << c; });
 }
 
 void Player::removeSpecial(const int n)
 {
-
+	const int size = sizeSpecial();
+	if (size < 4)																	//Max special deck is 3 cards
+	{
+		m_specialCard.erase(m_specialCard.begin() + n);
+	}
+	else
+	{
+		std::cerr << "Wrong special card!\n";
+	}
 }
 
 
