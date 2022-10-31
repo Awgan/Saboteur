@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-enum cardType { notdef=-1, hero = 0, event = 1, hall = 2 };
+enum cardType { notdef=-1, hero = 0, special = 1, hall = 2 };
 
 class Card
 {
