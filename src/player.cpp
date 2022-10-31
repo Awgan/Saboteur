@@ -2,6 +2,7 @@
 #include "player.hpp"
 
 #include <algorithm>
+#include <cmath>
 
 Player::Player()
 : m_hero{nullptr}
@@ -167,5 +168,31 @@ void Player::removeSpecial(const int n)
 	}
 }
 
+void Player::addGold( const unsigned int gold )
+{
+	m_gold = m_gold + gold;
+}
 
+void Player::removeGold( const unsigned int gold )
+{
+	if( std::abs(int(gold)) > m_gold )			//You can't have negative number of golds;
+	{
+		m_gold = 0;
+	}
+	else
+	{
+		m_gold = m_gold - gold;
+	}
+}
+
+const Card& Player::playCard(const int n)
+{
+	//ToDo
+	//'n' must be lower than 6
+	//if no -> return and give signal that operation wrong
+	//if yes -> remove card from deck, and return it
+
+	/*Card temp{m_cardDeck[n-1]};
+	remove(n);*/
+}
 

@@ -41,14 +41,13 @@ class Player
 		void addSpecial(const Card&);
 		void showSpecial();
 		void removeSpecial(const int n);	//remove special card only if there is special card for repair;
-		std::vector<Card>& getSpecial();	//get access to special deck to add special card
 
-		void playCard(const int n);				//play card number n from deck;
+		const int gold() const { return m_gold; }				//get number of golds;
+		void addGold( const unsigned int gold );				//add new gold; usigned int protect from negative numbers
+		void removeGold( const unsigned int gold );			//remove from gold; usigned int protect from negative numbers
+
+		const Card& playCard(const int n);//play card number n from deck;
 		void choosePlace();								//choose place to play card;
-
-		const int gold() const { return m_gold; }	//get number of golds;
-		void addGold( const int gol );		//add new gold;
-		void removeGold( const int gol );		//remove from gold;
 
 		//Player class must be frind class for class Board
 
