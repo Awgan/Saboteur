@@ -121,7 +121,7 @@ void Player::showDeck()
 
 bool Player::isSpecial(const Card& card)
 {
-	return card.getCardType() == cardType::event;
+	return card.getCardType() == cardType::special;
 }
 
 int Player::sizeSpecial()
@@ -131,12 +131,28 @@ int Player::sizeSpecial()
 
 void Player::addSpecial(const Card& card)
 {
-	//Check if there is the same card
-	//If not -> add card
-	//If yes -> return, don't add
+
+	for( auto f_card : m_specialCard )										//Check if there is the same card
+	{
+		if( f_card.getCardType() == card.getCardType() )		//If yes -> return, don't add
+		{
+			return;
+		}
+	}
+
+	m_specialCard.push_back(card);													//If no -> add card
+
 }
-void showSpecial();
-void removeSpecial(const int n);
+
+void Player::showSpecial()
+{
+	//ToDo
+}
+
+void Player::removeSpecial(const int n)
+{
+
+}
 
 
 
