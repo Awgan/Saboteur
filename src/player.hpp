@@ -39,6 +39,7 @@ class Player
 		bool isSpecial(const Card&);			//check if there is already the special card in deck
 		int sizeSpecial();								//size of special card deck
 		void showSpecial();
+		void removeSpecial(const Card&);	//remove special card only if there is special card for repair;
 		std::vector<Card>& getSpecial();	//get access to special deck to add special card
 
 		void playCard(const int n);				//play card number n from deck;
