@@ -29,17 +29,18 @@ class Player
 		void change(const Hero&);					//cast Hero card and take another;
 		void swapHero(Player&);						//swap Hero card with another Player
 
-		void initCardDeck();
+		void initCardDeck();							//ToDo
 		void add(const Card&);						//add one Card to deck
-		void remove(const Card&);					//remove one Card from deck
+		void remove(const int n);					//remove one Card from deck
 		void swapDeck(Player&);						//swap card deck with Player;
 		int sizeDeck();										//size of card deck
 		void showDeck();									//show card in deck;
 
 		bool isSpecial(const Card&);			//check if there is already the special card in deck
 		int sizeSpecial();								//size of special card deck
+		void addSpecial(const Card&);
 		void showSpecial();
-		void removeSpecial(const Card&);	//remove special card only if there is special card for repair;
+		void removeSpecial(const int n);	//remove special card only if there is special card for repair;
 		std::vector<Card>& getSpecial();	//get access to special deck to add special card
 
 		void playCard(const int n);				//play card number n from deck;
