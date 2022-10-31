@@ -126,13 +126,13 @@ bool Player::isSpecial(const Card& card)
 
 int Player::sizeSpecial()
 {
-	return m_specialCard.size();
+	return m_specialDeck.size();
 }
 
 void Player::addSpecial(const Card& card)
 {
 
-	for( auto f_card : m_specialCard )										//Check if there is the same card
+	for( auto f_card : m_specialDeck )										//Check if there is the same card
 	{
 		if( f_card.getCardType() == card.getCardType() )		//If yes -> return, don't add
 		{
@@ -140,7 +140,7 @@ void Player::addSpecial(const Card& card)
 		}
 	}
 
-	m_specialCard.push_back(card);													//If no -> add card
+	m_specialDeck.push_back(card);													//If no -> add card
 
 }
 
@@ -148,8 +148,8 @@ void Player::showSpecial()
 {
 	using v_it=std::vector<Card>::iterator;
 
-	v_it b_it = m_specialCard.begin();
-	v_it e_it = m_specialCard.end();
+	v_it b_it = m_specialDeck.begin();
+	v_it e_it = m_specialDeck.end();
 
 	std::for_each(b_it, e_it, [](Card& c){ std::cerr << c; });
 }
@@ -159,7 +159,7 @@ void Player::removeSpecial(const int n)
 	const int size = sizeSpecial();
 	if (size < 4)																	//Max special deck is 3 cards
 	{
-		m_specialCard.erase(m_specialCard.begin() + n);
+		m_specialDeck.erase(m_specialDeck.begin() + n);
 	}
 	else
 	{

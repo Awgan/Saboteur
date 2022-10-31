@@ -15,7 +15,7 @@ class Player
 	private:
 		Hero*								m_hero;					//hero card
 		std::vector<Card> 	m_cardDeck;			//deck of cards;
-		std::vector<Card>		m_specialCard;	//deck of special card which stop the hero; player get stop card from another players;
+		std::vector<Card>		m_specialDeck;	//deck of special card which stop the hero; player get stop card from another players;
 		int 								m_gold;					//amount of gold;
 
 	public:
