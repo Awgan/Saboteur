@@ -23,7 +23,7 @@ class Player
 		Player();
 		Player(const Hero&);
 
-		~Player(){ delete m_hero; };
+		~Player(){ /*delete m_hero;*/ };
 
 		void add(const Hero&);						//add Hero card;
 		void change(const Hero&);					//cast Hero card and take another;
@@ -33,11 +33,11 @@ class Player
 		void add(const Card&);						//add one Card to deck
 		void remove(const int n);					//remove one Card from deck
 		void swapDeck(Player&);						//swap card deck with Player;
-		int sizeDeck();										//size of card deck
+		int  sizeDeck();										//size of card deck
 		void showDeck();									//show card in deck;
 
 		bool isSpecial(const Card&);			//check if there is already the special card in deck
-		int sizeSpecial();								//size of special card deck
+		int  sizeSpecial();								//size of special card deck
 		void addSpecial(const Card&);
 		void showSpecial();
 		void removeSpecial(const int n);	//remove special card only if there is special card for repair;
@@ -50,6 +50,9 @@ class Player
 
 		//Player class must be frind class for class Board
 
+		//functions for testing
+
+		const Hero* heroCard(){return m_hero;}
 
 };
 
