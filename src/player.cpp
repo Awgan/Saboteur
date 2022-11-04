@@ -185,14 +185,16 @@ void Player::removeGold( const unsigned int gold )
 	}
 }
 
-const Card& Player::playCard(const int n)
+const Card Player::playCard(const int n)		//Card numbers are from 0..4;
 {
-	//ToDo
-	//'n' must be lower than 6
-	//if no -> return and give signal that operation wrong
-	//if yes -> remove card from deck, and return it
+	int size{sizeDeck()};
+	if( size > 4 )
+	{
+		throw(std::string("Ther is not the card. Number must be from 0 to 4"));
+	}
+	const Card tempCard{m_cardDeck[n]};
+	remove(n);
 
-	/*Card temp{m_cardDeck[n-1]};
-	remove(n);*/
+	return tempCard;
 }
 

@@ -46,8 +46,7 @@ class Player
 		void addGold( const unsigned int gold );				//add new gold; usigned int protect from negative numbers
 		void removeGold( const unsigned int gold );			//remove from gold; usigned int protect from negative numbers
 
-		const Card& playCard(const int n);//play card number n from deck;
-		void choosePlace();								//choose place to play card;
+		const Card playCard(const int n);//play card number n from deck;
 
 		//Player class must be frind class for class Board
 
