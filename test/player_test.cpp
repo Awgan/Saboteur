@@ -8,7 +8,7 @@
 void wynik(const bool wyn);
 
 bool playerTest(Player* player, const Card* heroCard, int gold, int deckSize, int specialSize);
-
+bool playerTest(const Player* pl_1, const Player* pl_2);
 bool playerTest_m_hero(Player* player, const Hero* hero);
 bool playerTest_m_cardDeck(Player* player, const int size);
 bool playerTest_m_specialDeck(Player* player, const int size);
@@ -34,6 +34,9 @@ int main(int argc, char* argv[])
 	p01.change( h02 );
 	wynik( playerTest_m_hero(&p01, &h02) );
 
+//5
+
+
 
 
 
@@ -58,6 +61,17 @@ bool playerTest(Player* player, const Card* heroCard, int gold, int deckSize, in
 			&& player->sizeSpecial() == specialSize
 		)
 		return true;
+
+	return false;
+}
+
+bool playerTest(const Player* pl_1, const Player* pl_2)
+{
+	if(			*(pl_1->heroCard()) == *(pl_2->heroCard())
+			&&
+			//ToDO ::
+		)
+
 
 	return false;
 }
