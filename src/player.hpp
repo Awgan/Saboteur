@@ -23,7 +23,7 @@ class Player
 		Player();
 		Player(const Hero&);
 
-		~Player(){ /*delete m_hero;*/ };
+		~Player(){ delete m_hero; };
 
 		void add(const Hero&);						//add Hero card;
 		void change(const Hero&);					//cast Hero card and take another;

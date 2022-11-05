@@ -10,30 +10,25 @@ Player::Player()
 {}
 
 Player::Player(const Hero& hero)
-: m_gold{0}
+: m_hero{nullptr}
+, m_gold{0}
 {
-	//TODO :: to jest bey sensu!!!!!
-	//if( m_hero == nullptr )
-	//{
-		//m_hero = new Hero;
-	//}
+	m_hero = new Hero;
 
 	*m_hero = hero;
 }
 
 void Player::add(const Hero& hero)
 {
-
-	//TODO :: to jest bey sensu!!!!!
-	//if( m_hero == nullptr )
-	//{
-		//m_hero = new Hero;
-		//*m_hero = hero;
-	//}
-	//else
-	//{
-		//std::cerr << "Ther is already the Hero\n";
-	//}
+	if( m_hero == nullptr )
+	{
+		m_hero = new Hero;
+		*m_hero = hero;
+	}
+	else
+	{
+		std::cerr << "Ther is already Hero; copy\n";
+	}
 
 	*m_hero = hero;
 
