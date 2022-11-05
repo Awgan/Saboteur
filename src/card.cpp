@@ -27,7 +27,7 @@ Card::Card( const Card & card )
 	std::cerr << "Card() : copy constructor, ID : " << id << '\n';
 }
 
-bool Card::operator==(const Card& c)
+bool Card::operator==(const Card& c) const
 {
 	if(this == &c)
 		return true;

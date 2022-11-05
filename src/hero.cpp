@@ -11,7 +11,7 @@ void Hero::changeName(std::string newName)
 	name = newName;
 }
 
-bool Hero::operator==(const Hero& h)
+bool Hero::operator==(const Hero& h) const
 {
 	std::cerr << "Hero operator==() entered\n";
 	if( this == &h )

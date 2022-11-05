@@ -42,7 +42,7 @@ class Hero : public Card
 		void 								changeHeroType(heroType newType);
 		void 								changeName(std::string NewName);
 
-		bool								operator==(const Hero& h);
+		bool								operator==(const Hero& h) const;
 		//friend bool					operator==(const Hero& h, const Hero& g);
 
 		friend std::ostream & operator<<(std::ostream & cc, const Hero & hh);

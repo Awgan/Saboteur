@@ -32,7 +32,7 @@ class Card
 		bool 						activate() {return active = discarded?false:true;}
 		bool 						discard() {active = false; return discarded = true;}
 
-		bool						operator==(const Card& c);
+		bool						operator==(const Card& c) const;
 		//friend bool			operator==(const Card& c, const Card& d);
 
 		friend std::ostream & operator<<(std::ostream & cc, const Card & card);
