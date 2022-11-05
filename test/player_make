@@ -1,0 +1,10 @@
+INCLUDE = -I. -I../src
+CPPS = ../src/player.o ../src/card.o ../src/hero.o
+
+player.out: player_test.cpp ../src/player.o
+	g++ -o player.out player_test.cpp $(INCLUDE) $(CPPS)
+
+../src/player.o: ../src/player.hpp ../src/player.cpp ../src/hero.o
+	make -f ../src/makefile
+
+
