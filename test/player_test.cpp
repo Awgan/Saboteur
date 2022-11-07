@@ -55,7 +55,7 @@ void wynik(const bool wyn)
 
 bool playerTest(Player* player, const Card* heroCard, int gold, int deckSize, int specialSize)
 {
-	if(		 player->heroCard() == heroCard
+	if(		 *((Card*)player->heroCard()) == *heroCard
 			&& player->gold() == gold
 			&& player->sizeDeck() == deckSize
 			&& player->sizeSpecial() == specialSize
@@ -67,11 +67,8 @@ bool playerTest(Player* player, const Card* heroCard, int gold, int deckSize, in
 
 bool playerTest(const Player* pl_1, const Player* pl_2)
 {
-	if(			*(pl_1->heroCard()) == *(pl_2->heroCard())
-			&&
-			//ToDO ::
-		)
-
+	if( *pl_1 == *pl_2 )
+		return true;
 
 	return false;
 }
