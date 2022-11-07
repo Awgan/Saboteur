@@ -18,10 +18,13 @@ bool Hero::operator==(const Hero& h) const
 		return true;
 	std::cerr << "Hero operator==() 1\n";
 	if( typeHero == h.typeHero && name == h.name )
-		return true;
-	std::cerr << "Hero operator==() 2\n";
-	if( !( Card::operator==(h) ) )
-		return false;
+	{
+		std::cerr << "Hero operator==() 2\n";
+		if( Card::operator==(h) )
+			{
+				return true;
+			}
+	}
 	std::cerr << "Hero operator==() 3\n";
 	return false;
 }
