@@ -54,6 +54,8 @@ class Player
 
 		const Hero* heroCard(){return m_hero;}
 
+		bool operator==(const Player& player) const;
+
 };
 
 #endif

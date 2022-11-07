@@ -199,3 +199,16 @@ const Card Player::playCard(const int n)		//Card numbers are from 0..4;
 	return tempCard;
 }
 
+bool Player::operator==(const Player& player) const
+{
+	if(this == &player)
+		return true;
+
+	if( 	 *m_hero == *(player.m_hero)
+			&& m_cardDeck == player.m_cardDeck
+			&& m_specialDeck == player.m_specialDeck
+			&& m_gold == player.m_gold )
+		return true;
+
+	return false;
+}
