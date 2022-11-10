@@ -16,26 +16,34 @@ bool playerTest_m_gold(Player* player, const int gold);
 
 int main(int argc, char* argv[])
 {
-//1
+//1 constructor()
 	Player p01{};
 	wynik( playerTest(&p01,nullptr,0,0,0) );
-//2
+
+//2 constructor()
 	Hero h01{heroType::saboteur, "Einstain"};
 	Player p02{ h01 };
-	const Card* cardTemp = p02.heroCard();
-	wynik( playerTest(&p02, cardTemp, 0, 0, 0) );
-//3
-	p01.add(h01);
+	const Hero* cardTemp_1 = p02.heroCard();
+	wynik( playerTest(&p02, cardTemp_1, 0, 0, 0) );
+
+//3 addHero()
+	p01.addHero(h01);
 	wynik( playerTest_m_hero(&p01, &h01) );
 
-//4
+//4 changeHero()
 	Hero h02{heroType::miner, "Galileusz"};
-	cardTemp = p01.heroCard();
-	p01.change( h02 );
+	//cardTemp_1 = p01.heroCard();
+	p01.changeHero( h02 );
 	wynik( playerTest_m_hero(&p01, &h02) );
 
-//5
+//5&6 swapHero()
+	cardTemp_1 = p01.heroCard();										//save hero cards from both; use them for checking
+	const Hero* cardTemp_2 = p02.heroCard();
+	p01.swapHero(p02);															//swap hero cards
+	wynik( playerTest_m_hero( &p01, cardTemp_2 ) );
+	wynik( playerTest_m_hero( &p02, cardTemp_1 ) );
 
+//7 removeDeckCard()
 
 
 
