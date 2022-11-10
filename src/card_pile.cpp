@@ -10,16 +10,18 @@
 CardPile::CardPile( uint8_t cardsN )
 {
 	//std::cerr << "CardPile :: Default Constructor\n";
+	//ToDo :: it is prepare only for Hero Pile
+	//ToDo :: perhaps it should be deleted
 
-	if( cardsN > 3 && cardsN < 12 )
-		cardsNumber = cardsN;
-	else
-	{
-		//std::cerr << "CardPile() : number overshoot; number of cards is set to default\n";
-		cardsNumber = 11;
-	}
+					if( cardsN > 3 && cardsN < 12 )
+						cardsNumber = cardsN;
+					else
+					{
+						//std::cerr << "CardPile() : number overshoot; number of cards is set to default\n";
+						cardsNumber = 11;
+					}
 
-	cards.reserve( cardsNumber+1 );
+					cards.reserve( cardsNumber+1 );
 }
 
 CardPile::CardPile(std::initializer_list<Card> list)

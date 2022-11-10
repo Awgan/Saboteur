@@ -33,7 +33,7 @@ class Hero : public Card
 		{ }
 
 		Hero(const Card &)
-		{ }
+		{ std::cout << "Hero(const Card &) :: enter to\n"; }
 
 		virtual ~Hero()
 		{ };

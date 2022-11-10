@@ -6,6 +6,7 @@
 
 #include "card.hpp"
 #include "hero.hpp"
+#include "card_pile.hpp"
 
 #include <vector>
 
@@ -18,22 +19,25 @@ class Player
 		std::vector<Card>		m_specialDeck;	//deck of special card which stop the hero; player get stop card from another players;
 		int 								m_gold;					//amount of gold;
 
+		CardPile*						m_cardPile;			//pointer to a CardPile
+
 	public:
 
 		Player();
-		Player(const Hero&);
+		Player(const Hero& hero);
+		Player(const Hero& hero, CardPile* pile);
 
 		~Player(){ delete m_hero; };
 
-		void add(const Hero&);						//add Hero card;
-		void change(const Hero&);					//cast Hero card and take another;
+		void addHero(const Hero&);				//add Hero card;
+		void changeHero(const Hero&);			//cast Hero card and take another;
 		void swapHero(Player&);						//swap Hero card with another Player
 
 		void initCardDeck();							//ToDo
-		void add(const Card&);						//add one Card to deck
-		void remove(const int n);					//remove one Card from deck
+		void addDeckCard(const Card&);		//add one Card to deck
+		void removeDeckCard(const int n);	//remove one Card from deck
 		void swapDeck(Player&);						//swap card deck with Player;
-		int  sizeDeck();										//size of card deck
+		int  sizeDeck();									//size of card deck
 		void showDeck();									//show card in deck;
 
 		bool isSpecial(const Card&);			//check if there is already the special card in deck

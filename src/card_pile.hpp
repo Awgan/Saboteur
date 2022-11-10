@@ -20,7 +20,7 @@ class CardPile
 {
 	private:
 
-		uint8_t				 			cardsNumber{};			//number of Cards
+		uint8_t				 			cardsNumber{};			//number of Cards; ToDo :: perhaps it should be deleted
 
 		std::vector<Card>		cards{};						//collect of Cards objects
 
@@ -32,7 +32,7 @@ class CardPile
 
 	public:
 
-		CardPile( uint8_t cardsN = 11 );										//default cards number 11 for max 10 players
+		CardPile( uint8_t cardsN = 11 );										//default cards number 11 for max 10 players, perhaps it should be deleted
 
 		CardPile( std::initializer_list<Card> list );
 

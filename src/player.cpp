@@ -10,15 +10,20 @@ Player::Player()
 {}
 
 Player::Player(const Hero& hero)
-: m_hero{nullptr}
+: m_hero{new Hero}
 , m_gold{0}
+, m_cardPile{nullptr}
 {
-	m_hero = new Hero;
-
 	*m_hero = hero;
 }
 
-void Player::add(const Hero& hero)
+Player::Player(const Hero& hero, CardPile* pile)
+: Player{hero}
+{
+	m_cardPile = pile;
+}
+
+void Player::addHero(const Hero& hero)
 {
 	if( m_hero == nullptr )
 	{
@@ -33,7 +38,7 @@ void Player::add(const Hero& hero)
 	*m_hero = hero;
 
 }
-void Player::change(const Hero& hero)
+void Player::changeHero(const Hero& hero)
 {
 	if( m_hero != nullptr )
 	{
@@ -41,7 +46,7 @@ void Player::change(const Hero& hero)
 	}
 	else
 	{
-		add(hero);
+		addHero(hero);
 	}
 }
 
@@ -59,34 +64,28 @@ void Player::swapHero(Player& player)
 	}
 }
 
-void Player::add(const Card& card)
+void Player::initCardDeck()
 {
-	cardType c_type = card.getCardType();
+	std::cout << "initCardDeck() :: not implemented yet\n";
 
-	switch(c_type)
+	Card tmp = m_cardPile->pickTop();
+
+	addDeckCard(tmp);
+
+}
+
+
+void Player::addDeckCard(const Card& card)
+{
+	if(sizeDeck() < 6)
 	{
-		case hero:
-			change(card);
-		break;
-
-		case special:
-			addSpecial(card);
-		break;
-
-		case hall:
-			if(sizeDeck() < 6)
-			{
-				m_cardDeck.push_back(card);
-			}
-		break;
-
-		default:
-		break;
+		m_cardDeck.push_back(card);
 	}
 
 }
 
-void Player::remove(const int n)
+
+void Player::removeDeckCard(const int n)
 {
 	const int size = sizeDeck();
 	if (size < 6)																	//Max card deck is 5
@@ -194,7 +193,7 @@ const Card Player::playCard(const int n)		//Card numbers are from 0..4;
 		throw(std::string("Ther is not the card. Number must be from 0 to 4"));
 	}
 	const Card tempCard{m_cardDeck[n]};
-	remove(n);
+	removeDeckCard(n);
 
 	return tempCard;
 }
