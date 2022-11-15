@@ -32,7 +32,7 @@ void Player::addHero(const Hero& hero)
 	}
 	else
 	{
-		std::cerr << "Ther is already Hero; copy\n";
+		std::cerr << "Ther is already Hero; copy new, and erase old\n";
 	}
 
 	*m_hero = hero;
@@ -77,11 +77,14 @@ void Player::initCardDeck()
 
 void Player::addDeckCard(const Card& card)
 {
-	if(sizeDeck() < 6)
+	if(sizeDeck() < 5 && card.getCardType() == cardType::hall)		//only 5 cards can be in deck
 	{
 		m_cardDeck.push_back(card);
 	}
-
+	else
+	{
+		std::cerr << "addDeckCard() :: deck full; max 5 cards in deck; OR wrong car type.\n";
+	}
 }
 
 

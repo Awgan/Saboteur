@@ -13,6 +13,8 @@ bool playerTest_m_hero(Player* player, const Hero* hero);
 bool playerTest_m_cardDeck(Player* player, const int size);
 bool playerTest_m_specialDeck(Player* player, const int size);
 bool playerTest_m_gold(Player* player, const int gold);
+bool playerTest_isHero();
+bool playerTest_addDeckCard();
 
 int main(int argc, char* argv[])
 {
@@ -37,16 +39,17 @@ int main(int argc, char* argv[])
 	wynik( playerTest_m_hero(&p01, &h02) );
 
 //5&6 swapHero()
-	cardTemp_1 = p01.heroCard();										//save hero cards from both; use them for checking
+	cardTemp_1 = p01.heroCard();										//save heroes cards; use them for checking
 	const Hero* cardTemp_2 = p02.heroCard();
-	p01.swapHero(p02);															//swap hero cards
+	p01.swapHero(p02);															//swap heroes cards
 	wynik( playerTest_m_hero( &p01, cardTemp_2 ) );
 	wynik( playerTest_m_hero( &p02, cardTemp_1 ) );
 
-//7 removeDeckCard()
+//7 isHero()
+	wynik(playerTest_isHero());
 
-
-
+//8 addDeckcard()
+	wynik(playerTest_addDeckCard());
 
 
 
@@ -99,4 +102,46 @@ bool playerTest_m_specialDeck(Player* player, const int size)
 bool playerTest_m_gold(Player* player, const int gold)
 {
 	return player->gold() == gold;
+}
+
+bool playerTest_isHero()
+{
+	Player p03;
+	if( p03.isHero() != false )
+		return false;
+
+	p03.addHero(Hero{heroType::saboteur, "Felix Cat"});
+	if( p03.isHero() != true )
+		return false;
+
+	return true;
+}
+
+bool playerTest_addDeckCard()
+{
+	Player p04(Hero{cardType::hero, 123, false, false, heroType::miner, "Nemo"});
+
+	p04.addDeckCard(Card{cardType::hall, 12, false, false});
+	if( p04.sizeDeck() != 1 )
+	{
+		std::cerr << "Test addDeckCard() :: wrong #1. size: " << p04.sizeDeck() <<'\n';
+		return false;
+	}
+	p04.addDeckCard(Card{cardType::hall, 13, false, false});
+	p04.addDeckCard(Card{cardType::hall, 14, false, false});
+	p04.addDeckCard(Card{cardType::hall, 15, false, false});
+	p04.addDeckCard(Card{cardType::hall, 16, false, false});
+	if( p04.sizeDeck() != 5 )
+	{
+		std::cerr << "Test addDeckCard() :: wrong #2. size: " << p04.sizeDeck() <<'\n';
+		return false;
+	}
+	p04.addDeckCard(Card{cardType::hall, 17, false, false});
+	if( p04.sizeDeck() != 5 )
+	{
+		std::cerr << "Test addDeckCard() :: wrong #3. size: " << p04.sizeDeck() <<'\n';
+		return false;
+	}
+
+	return true;
 }

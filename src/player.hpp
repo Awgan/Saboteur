@@ -29,6 +29,7 @@ class Player
 
 		~Player(){ delete m_hero; };
 
+		const bool isHero(){return m_hero;};//check if there is hero;
 		void addHero(const Hero&);				//add Hero card;
 		void changeHero(const Hero&);			//cast Hero card and take another;
 		void swapHero(Player&);						//swap Hero card with another Player

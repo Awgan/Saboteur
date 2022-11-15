@@ -24,7 +24,7 @@ Card::Card( const Card & card )
 	, active{card.active}
 	, discarded{card.discarded}
 {
-	std::cerr << "Card() : copy constructor, ID : " << id << '\n';
+	//std::cerr << "Card() : copy constructor, ID : " << id << '\n';
 }
 
 bool Card::operator==(const Card& c) const

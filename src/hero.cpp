@@ -13,19 +13,16 @@ void Hero::changeName(std::string newName)
 
 bool Hero::operator==(const Hero& h) const
 {
-	std::cerr << "Hero operator==() entered\n";
 	if( this == &h )
 		return true;
-	std::cerr << "Hero operator==() 1\n";
+
 	if( typeHero == h.typeHero && name == h.name )
 	{
-		std::cerr << "Hero operator==() 2\n";
 		if( Card::operator==(h) )
 			{
 				return true;
 			}
 	}
-	std::cerr << "Hero operator==() 3\n";
 	return false;
 }
 

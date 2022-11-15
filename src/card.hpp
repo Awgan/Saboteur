@@ -22,7 +22,7 @@ class Card
 
 		Card(const Card & card);
 
-		virtual ~Card(){std::cerr << "Card() : destructor, ID : " << id << " address: " << this << '\n';}
+		virtual ~Card(){}
 
 		const int 			getId() const {return id;}
 		const cardType 	getCardType() const {return type;}

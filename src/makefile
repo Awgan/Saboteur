@@ -1,4 +1,4 @@
-make: card.o hero.o player.o
+make: card.o hero.o player.o card.hpp hero.hpp player.hpp
 
 card.o:card.hpp card.cpp
 	g++ -c card.cpp -I.
