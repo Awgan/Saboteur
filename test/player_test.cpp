@@ -15,6 +15,7 @@ bool playerTest_m_specialDeck(Player* player, const int size);
 bool playerTest_m_gold(Player* player, const int gold);
 bool playerTest_isHero();
 bool playerTest_addDeckCard();
+bool playerTest_removeDeckCard();
 
 int main(int argc, char* argv[])
 {
@@ -50,6 +51,9 @@ int main(int argc, char* argv[])
 
 //8 addDeckcard()
 	wynik(playerTest_addDeckCard());
+
+//9 removeDeckCard()
+
 
 
 
@@ -119,14 +123,17 @@ bool playerTest_isHero()
 
 bool playerTest_addDeckCard()
 {
+	//Init Player;
 	Player p04(Hero{cardType::hero, 123, false, false, heroType::miner, "Nemo"});
 
+	//Add first card and check if there is one card;
 	p04.addDeckCard(Card{cardType::hall, 12, false, false});
 	if( p04.sizeDeck() != 1 )
 	{
 		std::cerr << "Test addDeckCard() :: wrong #1. size: " << p04.sizeDeck() <<'\n';
 		return false;
 	}
+	//Add another 4 cards to have max possible 5 cards; GOOD when there are 5 cards;
 	p04.addDeckCard(Card{cardType::hall, 13, false, false});
 	p04.addDeckCard(Card{cardType::hall, 14, false, false});
 	p04.addDeckCard(Card{cardType::hall, 15, false, false});
@@ -136,6 +143,7 @@ bool playerTest_addDeckCard()
 		std::cerr << "Test addDeckCard() :: wrong #2. size: " << p04.sizeDeck() <<'\n';
 		return false;
 	}
+	//Add another card to full deck; GOOD when there is only 5 cards, not 6;
 	p04.addDeckCard(Card{cardType::hall, 17, false, false});
 	if( p04.sizeDeck() != 5 )
 	{
@@ -145,3 +153,11 @@ bool playerTest_addDeckCard()
 
 	return true;
 }
+
+bool playerTest_removeDeckCard()
+{
+
+	return true;
+}
+
+
