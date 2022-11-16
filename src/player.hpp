@@ -36,7 +36,7 @@ class Player
 
 		void initCardDeck();							//ToDo
 		void addDeckCard(const Card&);		//add one Card to deck
-		void removeDeckCard(const int n);	//remove one Card from deck
+		void removeDeckCard(const int n);	//remove one Card from deck; begin() + n
 		void swapDeck(Player&);						//swap card deck with Player;
 		int  sizeDeck();									//size of card deck
 		void showDeck();									//show card in deck;

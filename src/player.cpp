@@ -83,7 +83,7 @@ void Player::addDeckCard(const Card& card)
 	}
 	else
 	{
-		std::cerr << "addDeckCard() :: deck full; max 5 cards in deck; OR wrong car type.\n";
+		std::cerr << "addDeckCard() :: deck full; max 5 cards in deck; OR wrong card type.\n";
 	}
 }
 
@@ -91,13 +91,19 @@ void Player::addDeckCard(const Card& card)
 void Player::removeDeckCard(const int n)
 {
 	const int size = sizeDeck();
-	if (size < 6)																	//Max card deck is 5
+	if( n < 1 || n > size )
 	{
-		m_cardDeck.erase(m_cardDeck.begin() + n);
+		std::cerr << "Wrong Card number\n";
+		return;
+	}
+
+	if (size > 0 && size < 6)												//Max card deck is 5
+	{
+		m_cardDeck.erase( m_cardDeck.begin() + (n-1) );
 	}
 	else
 	{
-		std::cerr << "Wrong card!\n";
+		std::cerr << "Wrong deck size!\n";
 	}
 }
 

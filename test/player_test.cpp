@@ -156,6 +156,55 @@ bool playerTest_addDeckCard()
 
 bool playerTest_removeDeckCard()
 {
+	//Init Player
+	Player p05(Hero{cardType::hero, 123, false, false, heroType::miner, "Nemo"});
+
+	//Add cards;
+	p05.addDeckCard(Card{cardType::hall, 12, false, false});
+	p05.addDeckCard(Card{cardType::hall, 13, false, false});
+	p05.addDeckCard(Card{cardType::hall, 14, false, false});
+	p05.addDeckCard(Card{cardType::hall, 15, false, false});
+	p05.addDeckCard(Card{cardType::hall, 16, false, false});
+
+	if( p05.sizeDeck() != 5 )
+	{
+		std::cerr << "Test removeDeckCard() 01 :: wrong number of cards\n";
+		return false;
+	}
+	int n = 0;
+	p05.removeDeckCard(1);
+
+	if( p05.sizeDeck() != 4 )
+	{
+		std::cerr << "Test removeDeckCard() 02 :: wrong number of cards\n";
+		return false;
+	}
+
+	n = 4;
+	p05.removeDeckCard(n);
+	if( p05.sizeDeck() != 3 )
+	{
+		std::cerr << "Test removeDeckCard() 03 :: wrong number of cards\n";
+		return false;
+	}
+
+	n = 0;
+	p05.removeDeckCard(n);
+	if( p05.sizeDeck() != 3 )
+	{
+		std::cerr << "Test removeDeckCard() 04 :: wrong number of cards\n";
+		return false;
+	}
+
+	for( n = 3; n > 0; --n)
+	{
+		p05.removeDeckCard(n);
+	}
+	if( p05.sizeDeck() != 0 )
+	{
+		std::cerr << "Test removeDeckCard() 05 :: wrong number of cards\n";
+		return false;
+	}
 
 	return true;
 }
